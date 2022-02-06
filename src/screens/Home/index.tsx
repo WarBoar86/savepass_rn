@@ -47,7 +47,8 @@ export function Home() {
     // Filter results inside data, save with setSearchListData
 
     if(searchText !== ''){
-      const foundLogin = data.filter(login => login.service_name === searchText);
+      const foundLogin = data.filter(login => login.service_name.toLocaleLowerCase()
+      .includes(searchText.toLocaleLowerCase()));
       setSearchListData(foundLogin);
     }
     
