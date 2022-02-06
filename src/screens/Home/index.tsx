@@ -34,18 +34,12 @@ export function Home() {
 
     // await AsyncStorage.removeItem(dataKey);
     const storagedData = await AsyncStorage.getItem(dataKey); 
-
-    
       
       const formatedData : LoginDataProps[] = storagedData? JSON.parse(storagedData) : [];
       // console.log(formatedData);
-
       
       setData(formatedData);
-      setSearchListData(data);
-
-    
-
+      setSearchListData(formatedData);
 
   }
 
