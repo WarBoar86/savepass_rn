@@ -38,7 +38,7 @@ export function Home() {
     
       
       const formatedData : LoginDataProps[] = storagedData? JSON.parse(storagedData) : [];
-      console.log(formatedData);
+      // console.log(formatedData);
 
       
       setData(formatedData);
@@ -52,19 +52,25 @@ export function Home() {
   function handleFilterLoginData() {
     // Filter results inside data, save with setSearchListData
 
-    if(searchText){
+    if(searchText !== ''){
       const foundLogin = data.filter(login => login.service_name === searchText);
       setSearchListData(foundLogin);
     }
-    // else{
-    //   setSearchListData(data);
-    // }
-
+    
   }
 
   function handleChangeInputText(text: string) {
     // Update searchText value
+     
+    if(text != ''){
       setSearchText(text);
+    
+    }else{
+       setSearchListData(data);
+       setSearchText('');
+
+    }
+
     
   }
 
